@@ -1,5 +1,6 @@
 program main
     use mesh_gen
+    use shape_function
     implicit none
     call initialise_mesh()
 

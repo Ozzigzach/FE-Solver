@@ -1,12 +1,10 @@
 module mesh_gen
 implicit none
 
-    integer :: mesh_elems_x
-    integer :: mesh_elems_y
-    real :: lengthx
-    real :: lengthy
-    integer :: mesh_nodes_x
-    integer :: mesh_nodes_y
+    integer :: mesh_elems_x, mesh_elems_y
+    real :: lengthx, lengthy
+    integer :: mesh_nodes_x, mesh_nodes_y
+    real :: mesh_unit_len_x, mesh_unit_len_y
     integer :: numnodes
     integer :: numelems
 
