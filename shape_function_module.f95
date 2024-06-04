@@ -14,11 +14,21 @@ contains
         N(2) = (1.0 + x)*(1.0 - y)
         N(3) = (1.0 + x)*(1.0 + y)
         N(4) = (1.0 - x)*(1.0 + y)
-        N = N*0.25
+        N = 0.25*N
     end function shape_function
 
-    ! function shape_gradient(xi)
-    ! TODO
-    ! end function shape_gradient
+    function shape_gradient(xi) result(dN)
+        real, dimension(2), intent(in) :: xi
+        real, dimension(2:4) :: dN
+        real :: x, y
+        x = xi(1)
+        y = xi(2)
+        dN = reshape( &
+            [-1.0+y, 1.0-y, 1.0+y, -1.0-y, &
+            -1.0+x, -1.0-x, 1.0+x, 1.0-x], &
+            shape(dN) &
+        )
+        dN = 0.25*dN
+    end function shape_gradient
 
 end module shape_function_module
